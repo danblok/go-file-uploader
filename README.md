@@ -20,13 +20,13 @@ make build
 
 The web server can accept multiple files in one request
 
-By default files are sent to the `storage` dir. You can change it by providing `dir` flag
+By default files are sent to the `storage` dir. You can change it by providing `-s` or `--storage` flag
 ```
-api -dir=./some-storage-path
+api -s=path-to-storage
 ```
-Also you can change the port of the web server. The default value is `8080`
+Also you can change the port of the web server by providing `-p` or `--port` flag. The default value is `8080`
 ```
-api -port=69420
+api -p=69420
 ```
 > [!NOTE]
 > * If you go to your browser and open `/files` page, it will list you all the files that have been uploaded to the server
@@ -40,10 +40,10 @@ The CLI sends a request with multiple files
 
 To upload files you should list their paths as arguments to the CLI
 ```
-cli file1.jpg file2.pdf file3
+sendme file1.jpg file2.pdf file3
 ```
 
-By default the CLI sends requests on `localhost:8080` host. You can change it with `host` flag
+By default the CLI sends requests on `localhost:8080` host. You can change it with `--to` flag
 ```
-cli -host=https://someurl.com file1 file2
+serveme -to=https://someurl.com file1 file2
 ```
