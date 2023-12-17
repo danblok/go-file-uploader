@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <h1>Multipart File Upload</h1>
+    <form id="form" enctype="multipart/form-data">
+      <div>
+        <label for="files">Select files</label>
+        <input id="files" type="file" multiple />
+      </div>
+      <button type="submit">Upload</button>
+    </form>
+  </body>
+  <script>
+    const form = document.getElementById("form");
+    const inputFile = document.getElementById("files");
+
+    const formData = new FormData();
+
+    const handleSubmit = (event) => {
+      event.preventDefault();
+
+      for (const file of inputFile.files) {
+        formData.append("files", file);
+      }
+
+      fetch("http://localhost:8080/upload", {
+        method: "POST",
+        body: formData,
+      }).catch((error) => alert("Something went wrong!"));
+    };
+
+    form.addEventListener("submit", handleSubmit);
+  </script>
+</html>
