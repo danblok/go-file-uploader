@@ -22,11 +22,11 @@ The web server can accept multiple files in one request
 
 By default files are sent to the `storage` dir. You can change it by providing `-s` or `--storage` flag
 ```
-api -s=path-to-storage
+serveme -s=path-to-storage
 ```
 Also you can change the port of the web server by providing `-p` or `--port` flag. The default value is `8080`
 ```
-api -p=69420
+serveme -p=69420
 ```
 > [!NOTE]
 > * If you go to your browser and open `/files` page, it will list you all the files that have been uploaded to the server
@@ -45,5 +45,5 @@ sendme file1.jpg file2.pdf file3
 
 By default the CLI sends requests on `localhost:8080` host. You can change it with `--to` flag
 ```
-serveme -to=https://someurl.com file1 file2
+sendme -to=https://someurl.com file1 file2
 ```
